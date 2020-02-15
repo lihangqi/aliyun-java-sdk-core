@@ -4,45 +4,13 @@ import java.util.*;
 
 public class FlattenMapUtil {
     public static List<Map<Object, Object>> toListMap(Map<String, String> flattenMap, String prefix) {
-
-        Object object = null;
-        String[] subKeys;
-        String[] subPrefixes = prefix.split("\\.");
-        for (Map.Entry<String, String> entry : flattenMap.entrySet()) {
-            String key = entry.getKey();
-            if (!key.startsWith(prefix + "[")) {
-                continue;
-            }
-            if (key.endsWith(".Length")) {
-                continue;
-            }
-            subKeys = key.split("\\.");
-
-            object = put(flattenMap, object, subKeys, subPrefixes.length - 1);
-        }
-
-        return (List<Map<Object, Object>>) object;
+        MapUtils mapUtils = new MapUtils();
+        return mapUtils.convertMapToListMap(flattenMap, prefix);
     }
 
     public static Map<Object, Object> toMap(Map<String, String> flattenMap, String prefix) {
-
-        Object object = null;
-        String[] subKeys;
-        String[] subPrefixes = prefix.split("\\.");
-        for (Map.Entry<String, String> entry : flattenMap.entrySet()) {
-            String key = entry.getKey();
-            if (!key.startsWith(prefix + ".")) {
-                continue;
-            }
-            if (key.endsWith(".Length")) {
-                continue;
-            }
-            subKeys = key.split("\\.");
-
-            object = putForMap(flattenMap, object, subKeys, subPrefixes.length - 1);
-        }
-
-        return (Map<Object, Object>) object;
+        MapUtils mapUtils = new MapUtils();
+        return mapUtils.convertMapToMap(flattenMap, prefix);
     }
 
     public static Object put(Map<String, String> flattenMap, Object object, String[] subKeys, int subKeysIndex) {

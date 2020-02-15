@@ -17,20 +17,20 @@ public class LocalConfigRegionalEndpointResolver extends EndpointResolverBase {
     protected static final JsonObject ENDPOINTS_JSON;
 
     static {
-       Scanner scanner = null;
-       try {
-           ClassLoader classLoader = LocalConfigRegionalEndpointResolver.class.getClassLoader();
-           InputStream is = classLoader.getResourceAsStream(ENDPOINT_JSON);
-           scanner = new Scanner(is, "UTF-8");
-           scanner.useDelimiter("\0");
-           String jsonStr = scanner.hasNext() ? scanner.next() : "";
-           ENDPOINTS_JSON = (new JsonParser()).parse(jsonStr).getAsJsonObject();
-       } finally {
-           if (null != scanner) {
-               scanner.close();
-           }
-       }
-   }
+        Scanner scanner = null;
+        try {
+            ClassLoader classLoader = LocalConfigRegionalEndpointResolver.class.getClassLoader();
+            InputStream is = classLoader.getResourceAsStream(ENDPOINT_JSON);
+            scanner = new Scanner(is, "UTF-8");
+            scanner.useDelimiter("\0");
+            String jsonStr = scanner.hasNext() ? scanner.next() : "";
+            ENDPOINTS_JSON = (new JsonParser()).parse(jsonStr).getAsJsonObject();
+        } finally {
+            if (null != scanner) {
+                scanner.close();
+            }
+        }
+    }
 
     public LocalConfigRegionalEndpointResolver() {
         initLocalConfig(ENDPOINTS_JSON);

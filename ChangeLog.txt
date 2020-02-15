@@ -1,5 +1,15 @@
-﻿2019-11-12 Version: 4.4.7
-1, change setParameter: Add null check	1, Support list and map loop nesting
+﻿2020-02-07 Version: 4.5.0
+1, Add description in ClientException
+2, Add tracing
+
+2019-11-26 Version: 4.4.9
+1, Improve toMap method
+
+2019-11-25 Version: 4.4.8
+1, Improve filtrateMap method
+
+2019-11-12 Version: 4.4.7
+1, Support list and map loop nesting
 2, Change put mode default type to form
 
 2019-09-30 Version: 4.4.6
