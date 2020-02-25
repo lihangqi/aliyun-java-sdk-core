@@ -27,7 +27,7 @@ script:
   - test -z $daily_accessKeyId -a -z $daily_accessSecret || make travis-test
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - mvn clean test jacoco:report coveralls:report
 
 matrix:
   allow_failures:
