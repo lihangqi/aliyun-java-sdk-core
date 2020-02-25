@@ -51,8 +51,6 @@
     <properties>
         <powermock.version>2.0.5</powermock.version>
         <mockito.version>3.2.4</mockito.version>
-    </properties>
-    <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
